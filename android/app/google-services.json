@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "310941986367",
+    "project_id": "autobiographene-8354d",
+    "storage_bucket": "autobiographene-8354d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310941986367:android:aa7d95086a22cf4dc9528a",
+        "android_client_info": {
+          "package_name": "com.example.reeshabh.autobiographene"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "310941986367-rldmlrduu5q0c3cn5s3eqv057302v249.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBal3LsBROl0YhfgPPfM89sldx78pkTHa4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "310941986367-rldmlrduu5q0c3cn5s3eqv057302v249.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
