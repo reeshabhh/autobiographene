@@ -1,4 +1,3 @@
-import 'package:autobiographene/widgets/curved_bottom_nav_bar.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -8,8 +7,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:uuid/uuid.dart';
 
 // Custom imports
-import '../widgets/widgets.dart';
-import 'screens.dart';
+import 'package:autobiographene/ui/comments_screen.dart';
+import 'package:autobiographene/ui/widgets/curved_bottom_nav_bar.dart';
+
 // import '/ui_widgets/home_screen_ui_widget/custom_colored_box.dart';
 // TODO
 // import 'private_screen.dart';

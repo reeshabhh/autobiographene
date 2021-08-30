@@ -1,12 +1,15 @@
-import 'package:autobiographene/screens/home_screen_test.dart';
-import 'package:autobiographene/screens/paginated_infinite_scroll_screens/home_screen_paginated.dart';
-import 'package:autobiographene/screens/paginated_infinite_scroll_screens/trending_screen_paginated.dart';
-import 'package:autobiographene/screens/paginated_infinite_scroll_screens/trending_screen_paginated_discarded.dart';
-import 'package:autobiographene/screens/paginated_infinite_scroll_screens/trending_screen_paginated_refresh.dart';
-import 'package:autobiographene/screens/paginated_infinite_scroll_screens/trending_test_stream_buil.dart';
-// import 'package:autobiographene/screens/home_screen_test.dart';
 import 'package:flutter/material.dart';
-import 'package:autobiographene/screens/screens.dart';
+
+
+// Custom imports
+import 'package:autobiographene/ui/calendar_screen.dart';
+import 'package:autobiographene/ui/paginated_infinite_scroll_screens/home_screen_paginated.dart';
+import 'package:autobiographene/ui/paginated_infinite_scroll_screens/trending_screen_paginated.dart';
+import 'package:autobiographene/ui/profile_screen.dart';
+import 'package:autobiographene/ui/settings_screen.dart';
+
+
+
 
 class CustomBottomAppBar extends StatelessWidget {
   @override

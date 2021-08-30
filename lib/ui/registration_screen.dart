@@ -6,7 +6,9 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 // Custom imports
-import '../screens/screens.dart';
+
+import 'package:autobiographene/ui/home_screen_not_used.dart';
+
 
 class RegistrationScreen extends StatefulWidget {
   static const String id = 'registration_screen';

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 // Custom imports
-import 'screens.dart';
+
+import 'package:autobiographene/ui/home_screen_not_used.dart';
 
 class AfterSubmitScreen extends StatelessWidget {
   static const String id = 'after_submit_page';

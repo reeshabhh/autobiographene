@@ -1,12 +1,13 @@
-import 'package:autobiographene/widgets/curved_bottom_nav_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
 // Custom imports
-import 'screens.dart';
-import 'package:autobiographene/widgets/widgets.dart';
+import 'package:autobiographene/ui/home_screen_not_used.dart';
+import 'package:autobiographene/ui/widgets/curved_bottom_nav_bar.dart';
+import 'package:autobiographene/ui/widgets/custom_privacy_switch.dart';
+
+
 
 var uuidComment = Uuid();
 

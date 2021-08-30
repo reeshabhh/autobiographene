@@ -1,10 +1,12 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-// import 'package:lifebook/ui/registration_screen.dart';
-// import 'package:lifebook/ui/ui/login_screen.dart';
+
 
 // Custom imports
-import '../screens/screens.dart';
+import 'package:autobiographene/ui/login_screen.dart';
+import 'package:autobiographene/ui/registration_screen.dart';
+
+
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';

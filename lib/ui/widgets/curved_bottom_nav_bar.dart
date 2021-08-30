@@ -1,10 +1,12 @@
-import 'package:autobiographene/screens/calendar_screen.dart';
-import 'package:autobiographene/screens/paginated_infinite_scroll_screens/home_screen_paginated.dart';
-import 'package:autobiographene/screens/paginated_infinite_scroll_screens/trending_test_stream_buil.dart';
-import 'package:autobiographene/screens/profile_screen.dart';
-import 'package:autobiographene/screens/settings_screen.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+
+// Custom imports
+import 'package:autobiographene/ui/calendar_screen.dart';
+import 'package:autobiographene/ui/paginated_infinite_scroll_screens/home_screen_paginated.dart';
+import 'package:autobiographene/ui/profile_screen.dart';
+import 'package:autobiographene/ui/settings_screen.dart';
+import 'package:autobiographene/ui/paginated_infinite_scroll_screens/trending_test_stream_buil.dart';
 
 class CurvedBottomNavBar extends StatefulWidget {
   // const CurvedBottomNavBar({

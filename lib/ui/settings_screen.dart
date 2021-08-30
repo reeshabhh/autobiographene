@@ -1,19 +1,20 @@
-import 'package:autobiographene/main.dart';
-import 'package:autobiographene/screens/login_screen.dart';
-import 'package:autobiographene/screens/screens.dart';
-import 'package:autobiographene/visual/theme/kustom_theme_provider.dart';
-import 'package:autobiographene/widgets/curved_bottom_nav_bar.dart';
-import 'package:autobiographene/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
-// import 'package:autobiographene/main.dart';
+
+// Custom imports
+import 'package:autobiographene/main.dart';
+import 'package:autobiographene/ui/login_screen.dart';
+import 'package:autobiographene/ui/feedback_screen.dart';
+import 'package:autobiographene/ui/home_screen_not_used.dart';
+import 'package:autobiographene/ui/visual/theme/kustom_theme_provider.dart';
+import 'package:autobiographene/ui/widgets/custom_bottom_app_bar.dart';
 
 class SettingsScreen extends StatelessWidget {
   static const String id = 'settings_screen';
 // NOTE: new note
-// REVIEW:NOTE: 
-// FIXME: 
+// REVIEW:NOTE:
+// FIXME:
 // TODO:
   @override
   Widget build(BuildContext context) {
@@ -24,9 +25,7 @@ class SettingsScreen extends StatelessWidget {
 
 // NORmal comment
 
-  
 // FIXME this is fixme
-
 
 class _Settings extends StatelessWidget {
   var email = loggedInUserGlobal!.email;
@@ -146,7 +145,6 @@ class _Settings extends StatelessWidget {
 }
 
 // bool _switchValue = true;
-
 
 //  CupertinoSwitch(
 //               value: _switchValue,

@@ -1,11 +1,12 @@
-import 'package:autobiographene/screens/home_screen_test.dart';
+import 'package:autobiographene/ui/home_screen_test.dart';
 import 'package:autobiographene/services/firebase_auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 // Custom imports
-import '../screens/screens.dart';
+
+
 
 class LoginScreen extends StatefulWidget {
   static const String id = 'login_screen';

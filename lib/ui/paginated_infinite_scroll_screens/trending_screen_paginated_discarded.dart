@@ -1,47 +1,49 @@
-import 'package:autobiographene/screens/comments_screen.dart';
-import 'package:autobiographene/screens/home_screen_not_used.dart';
-import 'package:autobiographene/widgets/custom_bottom_app_bar.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:paginate_firestore/paginate_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
+import 'package:paginate_firestore/paginate_firestore.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 
-class TrendingScreenPaginated extends StatelessWidget {
-  static const id = 'trending_screen_final';
-  late String _printDateTime;
 
-  Query _trendingQuery = FirebaseFirestore.instance
-          .collection('C_All_Posts')
-          .where('Is_Private", isEqualTo: false')
-          .where(
-            'Datetime',
-            isGreaterThanOrEqualTo: DateTime.now().subtract(
-              Duration(days: 5),
-            ),
-          )
-          // .where(
-          //   'Datetime',
-          //   isLessThanOrEqualTo: DateTime.now(),
-          //   isGreaterThanOrEqualTo: DateTime.now().subtract(
-          //     Duration(days: 2),
-          //   ),
-          // )
-          // .orderBy('No_Of_Likes', descending: true)
-          .orderBy('Datetime', descending: true)
-      // .where("Is_Private", isEqualTo: false)
-      ;
+// Custom imports
 
-  // .orderBy('Datetime', descending: true)
-  // .orderBy(
-  //   'No_Of_Likes',
-  //   descending: true,
-  // )
+import 'package:autobiographene/ui/comments_screen.dart';
+import 'package:autobiographene/ui/home_screen_not_used.dart';
+import 'package:autobiographene/ui/widgets/curved_bottom_nav_bar.dart';
+
+
+// import 'screens.dart';
+
+String? textValGlobalTrending;
+FirebaseStorage storageTrending = FirebaseStorage.instance;
+final _textEditingControllerPosts = TextEditingController();
+void clearTextPostTrending() {
+  _textEditingControllerPosts.clear();
+}
+
+int iGlobalTrending = 0;
+final snackBarTrending = SnackBar(
+  content: Text('Yay! Your message was posted!'),
+);
+
+class TrendingScreenPaginatedDiscarded extends StatefulWidget {
+  static const String id = 'trending_screen_paginated';
+
+  @override
+  _TrendingScreenPaginatedDiscardedState createState() => _TrendingScreenPaginatedDiscardedState();
+}
+
+class _TrendingScreenPaginatedDiscardedState extends State<TrendingScreenPaginatedDiscarded> {
+  String? _printDateTime;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('final trending'),
+        title: Center(
+          child: Text('Trending Right Now!'),
+        ),
       ),
       body: Column(
         children: [
@@ -213,7 +215,7 @@ class TrendingScreenPaginated extends StatelessWidget {
                           child: Center(
                             child: Text(
                               '${data!['Message']}',
-                              style: TextStyle(fontSize: 23, shadows: <Shadow>[
+                              style: TextStyle(fontSize: 17, shadows: <Shadow>[
                                 // Shadow(
                                 //   offset: Offset(10.0, 10.0),
                                 //   blurRadius: 3.0,
@@ -251,8 +253,6 @@ class TrendingScreenPaginated extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        SizedBox(),
-                        SizedBox(),
                         IconButton(
                           onPressed: () {
                             bool _addOrSubtractLikeBool = data['Liked_By']
@@ -301,12 +301,10 @@ class TrendingScreenPaginated extends StatelessWidget {
                           }()
                               ? Icon(
                                   Icons.recommend_outlined,
-                                  size: 20.0,
-                                  // color: Colors.green,
+                                  color: Colors.green,
                                 )
                               : Icon(
                                   Icons.thumb_up_outlined,
-                                  size: 20.0,
                                   color: Colors.red[400],
                                 ),
                         ),
@@ -364,12 +362,10 @@ class TrendingScreenPaginated extends StatelessWidget {
                               ? Icon(
                                   Icons.favorite_outlined,
                                   color: Colors.green,
-                                  size: 20.0,
                                 )
                               : Icon(
                                   Icons.favorite_border_outlined,
                                   color: Colors.red[400],
-                                  size: 20.0,
                                 ),
                         ),
                         //TODO I will call comments notes
@@ -382,7 +378,6 @@ class TrendingScreenPaginated extends StatelessWidget {
                           icon: Icon(
                             Icons.notes,
                             color: Colors.red[400],
-                            size: 20.0,
                           ),
                         ),
                         IconButton(
@@ -390,7 +385,6 @@ class TrendingScreenPaginated extends StatelessWidget {
                           icon: Icon(
                             Icons.send,
                             color: Colors.blue[400],
-                            size: 20.0,
                           ),
                         ),
                       ],
@@ -405,16 +399,22 @@ class TrendingScreenPaginated extends StatelessWidget {
                 );
               },
               // orderBy is compulsory to enable pagination
-              query: _trendingQuery.orderBy('No_Of_Likes', descending: true),
+              query: FirebaseFirestore.instance
+                  .collection('C_All_Posts')
+                  .where("Is_Private", isEqualTo: false)
+                  // .orderBy('Datetime', descending: true)
+                  // .where("Is_Private", isEqualTo: false)
+                  .orderBy('No_Of_Likes', descending: true),
               //Change types accordingly
               itemBuilderType: PaginateBuilderType.listView,
               // to fetch real-time data
               isLive: true,
             ),
-          )
+          ),
         ],
       ),
-      bottomNavigationBar: CustomBottomAppBar(),
+      bottomNavigationBar: CurvedBottomNavBar(2),
     );
+    // );
   }
 }

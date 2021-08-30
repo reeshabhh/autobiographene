@@ -1,20 +1,24 @@
-import 'package:autobiographene/main.dart';
-import 'package:autobiographene/screens/paginated_infinite_scroll_screens/trending_test_stream_buil.dart';
-import 'package:autobiographene/widgets/curved_bottom_nav_bar.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:paginate_firestore/bloc/pagination_listeners.dart';
 import 'package:uuid/uuid.dart';
 import 'package:paginate_firestore/paginate_firestore.dart';
+// import 'package:paginate_firestore/bloc/pagination_listeners.dart';
+
 
 // Custom imports
-import '../../widgets/widgets.dart';
-import '../screens.dart';
+import 'package:autobiographene/main.dart';
+import 'package:autobiographene/ui/comments_screen.dart';
+import 'package:autobiographene/ui/home_screen_not_used.dart';
+import 'package:autobiographene/ui/widgets/custom_bottom_app_bar.dart';
+
+// import 'package:autobiographene/ui/paginated_infinite_scroll_screens/trending_test_stream_buil.dart';
+// import 'package:autobiographene/ui/widgets/curved_bottom_nav_bar.dart';
+// import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+
 // import '/ui_widgets/home_screen_ui_widget/custom_colored_box.dart';
 //TODO
 // import 'private_screen.dart';

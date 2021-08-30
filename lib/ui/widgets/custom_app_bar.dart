@@ -1,8 +1,12 @@
-import 'package:autobiographene/visual/theme/config.dart';
 import 'package:flutter/material.dart';
 
+
 // Custom imports
-import '../screens/screens.dart';
+import 'package:autobiographene/ui/calendar_screen.dart';
+import 'package:autobiographene/ui/private_screen.dart';
+import 'package:autobiographene/ui/settings_screen.dart';
+import 'package:autobiographene/ui/trending_screen.dart';
+import 'package:autobiographene/ui/visual/theme/config.dart';
 // import 'package:autobiographene/theme/config.dart';
 
 

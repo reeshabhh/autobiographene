@@ -1,9 +1,15 @@
-import 'package:autobiographene/screens/comments_screen.dart';
-import 'package:autobiographene/screens/home_screen_not_used.dart';
-import 'package:autobiographene/widgets/custom_bottom_app_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+
+
+// Custom Imports
+
+import 'package:autobiographene/ui/comments_screen.dart';
+import 'package:autobiographene/ui/home_screen_not_used.dart';
+import 'package:autobiographene/ui/widgets/custom_bottom_app_bar.dart';
+
 
 class TrendingScreenPaginatedRefresh extends StatefulWidget {
   static const id = 'trending_screen_paginated_refresh';

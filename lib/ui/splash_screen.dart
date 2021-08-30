@@ -1,6 +1,9 @@
-import 'package:autobiographene/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
+
+// Custom imports
+import 'package:autobiographene/ui/home_screen_not_used.dart';
+
 
 class SplashScreen extends StatefulWidget {
   static const String id = 'splash_screen';

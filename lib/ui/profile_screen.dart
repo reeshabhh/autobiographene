@@ -1,8 +1,11 @@
-import 'package:autobiographene/screens/home_screen_not_used.dart';
-import 'package:autobiographene/widgets/curved_bottom_nav_bar.dart';
-import 'package:autobiographene/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+
+// Custom imports
+import 'package:autobiographene/ui/home_screen_not_used.dart';
+import 'package:autobiographene/ui/widgets/custom_bottom_app_bar.dart';
+
 
 class ProfileScreen extends StatefulWidget {
   static const String id = 'profile_screen';

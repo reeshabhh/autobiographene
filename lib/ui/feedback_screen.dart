@@ -1,6 +1,10 @@
-import 'package:autobiographene/widgets/curved_bottom_nav_bar.dart';
-import 'package:autobiographene/widgets/custom_bottom_app_bar.dart';
 import 'package:flutter/material.dart';
+
+
+// Custom imports
+
+import 'package:autobiographene/ui/widgets/curved_bottom_nav_bar.dart';
+
 
 class FeedbackScreen extends StatefulWidget {
   static const String id = 'feedback_screen';

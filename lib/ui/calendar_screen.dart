@@ -1,13 +1,15 @@
-import 'package:autobiographene/screens/home_screen_not_used.dart';
-import 'package:autobiographene/widgets/curved_bottom_nav_bar.dart';
-import 'package:autobiographene/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-// import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
+// import 'package:firebase_storage/firebase_storage.dart';
 
-import 'screens.dart';
+
+
+// Custom imports
+import 'package:autobiographene/ui/home_screen_not_used.dart';
+import 'package:autobiographene/ui/widgets/custom_bottom_app_bar.dart';
+
 
 class CalendarScreen extends StatefulWidget {
   static const String id = 'calendar_screen';

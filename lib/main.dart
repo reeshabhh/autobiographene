@@ -1,25 +1,34 @@
-// Debug is working as of 18 Aug 2021 at 11:13 AM
-
-//import 'dart:js';
-
-import 'package:autobiographene/screens/paginated_infinite_scroll_screens/home_screen_paginated.dart';
-import 'package:autobiographene/screens/home_screen_test.dart';
-import 'package:autobiographene/screens/paginated_infinite_scroll_screens/trending_screen_paginated.dart';
-import 'package:autobiographene/screens/paginated_infinite_scroll_screens/trending_screen_paginated_discarded.dart';
-import 'package:autobiographene/screens/paginated_infinite_scroll_screens/trending_screen_paginated_refresh.dart';
-import 'package:autobiographene/screens/paginated_infinite_scroll_screens/trending_test_stream_buil.dart';
-import 'package:autobiographene/visual/theme/kustom_theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:autobiographene/screens/after_submit_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 // import 'package:shared_preferences/shared_preferences.dart'; //? is it required
 //FIXME could not find the provider //ERROR
 
 // Custom imports
+
+import 'package:autobiographene/ui/after_submit_screen.dart';
+import 'package:autobiographene/ui/calendar_screen.dart';
+import 'package:autobiographene/ui/comments_screen.dart';
+import 'package:autobiographene/ui/feedback_screen.dart';
+import 'package:autobiographene/ui/home_screen_test.dart';
+import 'package:autobiographene/ui/login_screen.dart';
+import 'package:autobiographene/ui/paginated_infinite_scroll_screens/home_screen_paginated.dart';
+import 'package:autobiographene/ui/paginated_infinite_scroll_screens/trending_screen_paginated.dart';
+import 'package:autobiographene/ui/paginated_infinite_scroll_screens/trending_screen_paginated_discarded.dart';
+import 'package:autobiographene/ui/paginated_infinite_scroll_screens/trending_screen_paginated_refresh.dart';
+import 'package:autobiographene/ui/paginated_infinite_scroll_screens/trending_test_stream_buil.dart';
+import 'package:autobiographene/ui/post_screen.dart';
+import 'package:autobiographene/ui/private_screen.dart';
+import 'package:autobiographene/ui/profile_screen.dart';
+import 'package:autobiographene/ui/registration_screen.dart';
+import 'package:autobiographene/ui/settings_screen.dart';
+import 'package:autobiographene/ui/splash_screen.dart';
+import 'package:autobiographene/ui/trending_screen.dart';
+import 'package:autobiographene/ui/visual/theme/kustom_theme_provider.dart';
+import 'package:autobiographene/ui/welcome_screen.dart';
+
 // import 'package:knight_and_day/home/home_page.dart';
-import './screens/screens.dart';
 // FIXME fix theming - 25-Jul-21
 // import './theme/custom_theme.dart';
 // import './theme/config.dart';

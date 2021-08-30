@@ -1,10 +1,9 @@
-// import b'package:flutter/material.dart';
-
-import 'package:autobiographene/main.dart';
-import 'package:autobiographene/visual/theme/colors.dart';
-// import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:flutter/foundation.dart';
+
+// Custom imports
+import 'package:autobiographene/ui/visual/theme/colors.dart';
 
 class KustomThemeProvider with ChangeNotifier {
   late ThemeData _themeData;

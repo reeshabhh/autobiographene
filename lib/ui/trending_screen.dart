@@ -1,12 +1,12 @@
-import 'package:autobiographene/widgets/curved_bottom_nav_bar.dart';
-import 'package:autobiographene/widgets/widgets.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 // Custom imports
-import 'screens.dart';
+import 'package:autobiographene/ui/comments_screen.dart';
+import 'package:autobiographene/ui/home_screen_not_used.dart';
+import 'package:autobiographene/ui/widgets/curved_bottom_nav_bar.dart';
+
 
 String? textValGlobalTrending;
 FirebaseStorage storageTrending = FirebaseStorage.instance;
