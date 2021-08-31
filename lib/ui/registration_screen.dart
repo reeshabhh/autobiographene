@@ -1,4 +1,5 @@
 import 'package:auth_buttons/auth_buttons.dart';
+import 'package:autobiographene/ui/paginated_infinite_scroll_screens/home_screen_paginated.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -8,7 +9,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 // Custom imports
 
 import 'package:autobiographene/ui/home_screen_not_used.dart';
-
 
 class RegistrationScreen extends StatefulWidget {
   static const String id = 'registration_screen';
@@ -20,9 +20,9 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   final _auth = FirebaseAuth.instance;
   bool showSpinner = false;
-  String ?email;
+  String? email;
   String? password;
-  String ?userName;
+  String? userName;
 
   // bool _isLoggedIn = false;
   GoogleSignInAccount? _userObj;
@@ -109,7 +109,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 8.0,
               ),
               TextField(
-                obscureText: true,
+                obscureText: false,
                 textAlign: TextAlign.center,
                 onChanged: (value) {
                   //Do something with the user input.
@@ -224,7 +224,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               showSpinner = false;
                             },
                           );
-                          Navigator.pushNamed(context, HomeScreen.id);
+                          Navigator.pushNamed(context, HomeScreenPaginated.id);
                           print('email : $email');
                           print('password : $password');
                         }

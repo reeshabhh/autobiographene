@@ -1,38 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:provider/provider.dart';
+// import 'package:autobiographene/ui/visual/theme/kustom_theme_provider.dart';
 
 // Custom imports
 import 'package:autobiographene/main.dart';
 import 'package:autobiographene/ui/login_screen.dart';
 import 'package:autobiographene/ui/feedback_screen.dart';
 import 'package:autobiographene/ui/home_screen_not_used.dart';
-import 'package:autobiographene/ui/visual/theme/kustom_theme_provider.dart';
 import 'package:autobiographene/ui/widgets/custom_bottom_app_bar.dart';
+import 'package:autobiographene/ui/visual/theme/theme_bloc.dart';
+import 'package:autobiographene/bloc/theme_bloc/theme_bloc.dart';
+import 'package:autobiographene/bloc/theme_bloc/theme_event.dart';
+// import 'package:autobiographene/ui/visual/theme/kustom_theme_provider.dart';
 
-class SettingsScreen extends StatelessWidget {
+AppTheme? _currTheme;
+
+class SettingsScreen extends StatefulWidget {
   static const String id = 'settings_screen';
-// NOTE: new note
-// REVIEW:NOTE:
-// FIXME:
-// TODO:
+
   @override
-  Widget build(BuildContext context) {
-    return _Settings();
-  }
+  _SettingsScreenState createState() => _SettingsScreenState();
 }
-// TODO this is todo
 
-// NORmal comment
-
-// FIXME this is fixme
-
-class _Settings extends StatelessWidget {
+class _SettingsScreenState extends State<SettingsScreen> {
   var email = loggedInUserGlobal!.email;
-  @override
-  Widget build(BuildContext context) {
+
+  _setTheme(bool darkTheme) {
+    _currTheme = darkTheme ? AppTheme.lightTheme : AppTheme.darkTheme;
+    BlocProvider.of<ThemeBloc>(context).add(
+      ThemeEvent(appTheme: AppTheme.darkTheme),
+    );
+
+    // context.bloc<ThemeBloc>().add(ThemeEvent(appTheme: AppTheme.darkTheme),);
+
     // final _themeChanger = Provider.of<ThemeChanger>(context);
-    final _kustomThemeChanger = Provider.of<KustomThemeProvider>(context);
+  }
+  // final _kustomThemeChanger = Provider.of<KustomThemeProvider>(context);
+
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Settings'),
@@ -98,7 +105,8 @@ class _Settings extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              _kustomThemeChanger.setTheme(darkTheme);
+              _setTheme(false);
+              // _kustomThemeChanger.setTheme(darkTheme);
               globalDarkThemeChecker = true;
 
               // _kustomThemeChanger(darkTheme);
@@ -107,7 +115,8 @@ class _Settings extends StatelessWidget {
           ),
           IconButton(
             onPressed: () => {
-              _kustomThemeChanger.setTheme(lightTheme),
+              _setTheme(true),
+              // _kustomThemeChanger.setTheme(lightTheme),
               globalDarkThemeChecker = false,
             }
             //  _themeChanger.setTheme(ThemeData.light()),
@@ -137,12 +146,18 @@ class _Settings extends StatelessWidget {
               // handle change value here
             },
           ),
+          Switch(
+              value: _currTheme == AppTheme.lightTheme,
+              onChanged: (val) {
+                _setTheme(val);
+              }),
         ],
       ),
       bottomNavigationBar: CustomBottomAppBar(),
     );
   }
 }
+
 
 // bool _switchValue = true;
 
