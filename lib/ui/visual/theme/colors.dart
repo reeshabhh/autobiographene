@@ -1,3 +1,14 @@
+import 'package:flutter/material.dart';
+
+class CustomColors {
+  static const Color lightPurple = Color(0xFFBB86FA);
+  static const Color purple = Color(0xFF6002EE);
+  static const Color deepPurple = Color(0xFF3900B1);
+  static const Color grey = Color(0xFF848484);
+  static const Color darkGrey = Color(0xFF222222);
+  static const Color black = Color(0xFF141414);
+}
+
 /*Copyright (c) 2020 Razeware LLC
 
 // Permission is hereby granted, free of charge, to any person
@@ -34,14 +45,3 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.*/
-
-import 'package:flutter/material.dart';
-
-class CustomColors {
-  static const Color lightPurple = Color(0xFFBB86FA);
-  static const Color purple = Color(0xFF6002EE);
-  static const Color deepPurple = Color(0xFF3900B1);
-  static const Color grey = Color(0xFF848484);
-  static const Color darkGrey = Color(0xFF222222);
-  static const Color black = Color(0xFF141414);
-}

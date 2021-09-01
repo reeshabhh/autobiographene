@@ -10,7 +10,6 @@ import 'package:paginate_firestore/paginate_firestore.dart';
 
 
 // Custom imports
-import 'package:autobiographene/main.dart';
 import 'package:autobiographene/ui/comments_screen.dart';
 import 'package:autobiographene/ui/home_screen_not_used.dart';
 import 'package:autobiographene/ui/widgets/custom_bottom_app_bar.dart';
@@ -471,9 +470,9 @@ class _HomeScreenPaginated extends State<HomeScreenPaginated> {
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15.0),
-                            color: globalDarkThemeChecker == true
-                                ? Colors.black
-                                : Colors.white,
+                            // color: globalDarkThemeChecker == true
+                            //     ? Colors.black
+                            //     : Colors.white,
                             // color: Colors.white, //background color of box
                             boxShadow: [
                               BoxShadow(

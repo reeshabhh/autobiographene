@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:autobiographene/main.dart';
 // import 'package:provider/provider.dart';
 
 
@@ -25,5 +24,5 @@ import 'package:autobiographene/main.dart';
 
 
 final customBoxDecoration = BoxDecoration(
-  color: globalDarkThemeChecker == true ? Colors.white : Colors.black
+  // color: globalDarkThemeChecker == true ? Colors.white : Colors.black
 );

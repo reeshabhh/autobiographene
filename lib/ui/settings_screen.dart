@@ -9,9 +9,9 @@ import 'package:autobiographene/ui/login_screen.dart';
 import 'package:autobiographene/ui/feedback_screen.dart';
 import 'package:autobiographene/ui/home_screen_not_used.dart';
 import 'package:autobiographene/ui/widgets/custom_bottom_app_bar.dart';
-import 'package:autobiographene/ui/visual/theme/themes_bloc.dart';
-import 'package:autobiographene/bloc/theme_bloc/theme_bloc.dart';
-import 'package:autobiographene/bloc/theme_bloc/theme_event.dart';
+import 'package:autobiographene/ui/visual/theme/themes.dart';
+import 'package:autobiographene/bloc/theme/theme_bloc.dart';
+import 'package:autobiographene/bloc/theme/theme_event.dart';
 // import 'package:autobiographene/ui/visual/theme/kustom_theme_provider.dart';
 
 // AppTheme? _currTheme;
@@ -194,20 +194,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
           IconButton(
             onPressed: () => setState(
               () {
-                // debugPrint(
-                // BlocProvider.of<ThemeBloc>(context).state.toString());
-                print(BlocProvider.of<ThemeBloc>(context)
-                    .state
-                    .themeData!
-                    .scaffoldBackgroundColor
-                    .toString());
-                print(BlocProvider.of<ThemeBloc>(context)
-                    .state
-                    .themeData
-                    .toString());
-                print(BlocProvider.of<ThemeBloc>(context)
-                    .state.themeData
-                     == AppTheme.darkTheme);
                 _currThemeBoolean = !_currThemeBoolean;
                 _toggleTheme(_currThemeBoolean);
               },

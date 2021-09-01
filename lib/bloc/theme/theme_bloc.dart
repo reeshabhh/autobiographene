@@ -21,9 +21,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Custom imports
 
-import 'package:autobiographene/bloc/theme_bloc/theme_event.dart';
-import 'package:autobiographene/bloc/theme_bloc/theme_state.dart';
-import 'package:autobiographene/ui/visual/theme/themes_bloc.dart';
+import 'package:autobiographene/bloc/theme/theme_event.dart';
+import 'package:autobiographene/bloc/theme/theme_state.dart';
+import 'package:autobiographene/ui/visual/theme/themes.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   //

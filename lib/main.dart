@@ -26,17 +26,10 @@ import 'package:autobiographene/ui/settings_screen.dart';
 import 'package:autobiographene/ui/splash_screen.dart';
 import 'package:autobiographene/ui/trending_screen.dart';
 import 'package:autobiographene/ui/welcome_screen.dart';
-import 'package:autobiographene/bloc/theme_bloc/theme_bloc.dart';
-import 'package:autobiographene/bloc/theme_bloc/theme_state.dart';
+import 'package:autobiographene/bloc/theme/theme_bloc.dart';
+import 'package:autobiographene/bloc/theme/theme_state.dart';
 
-// import 'package:knight_and_day/home/home_page.dart';
-// FIXME fix theming - 25-Jul-21
-// import './theme/custom_theme.dart';
-// import './theme/config.dart';
-
-// FIXME USe themes to define size of icons in different sections                                  size: 20.0,
-
-bool globalDarkThemeChecker = true;
+// bool globalDarkThemeChecker = true;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,55 +40,26 @@ Future<void> main() async {
 }
 
 class MyApp extends StatefulWidget {
-  // const MyApp({Key key}) : super(key: key);
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State {
-  // FIXME check if it is required 25-Jul-21
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   currentTheme.addListener(
-  //     () {
-  //       setState(() {});
-  //     },
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     return MaterialAppWithTheme();
-
-    /// *Start* Commented to provide theming with bloc
-    // ChangeNotifierProvider<KustomThemeProvider>(
-    //   create: (_) => KustomThemeProvider(lightTheme),
-    //   child: MaterialAppWithTheme(),
-    /// *End* Commented to provide theming with bloc
-
-// return ChangeNotifierProvider<ThemeChanger>(
-    //   create: (_) => ThemeChanger(ThemeData.dark()),
-    //   child: MaterialAppWithTheme(),
   }
 }
 
 class MaterialAppWithTheme extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //final theme = Provider.of<KustomThemeProvider>(context);
-    //globalDarkThemeChecker = theme.getKustomTheme() == darkTheme ? true : false;
-
     return BlocProvider(
       create: (context) => ThemeBloc(),
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (BuildContext context, ThemeState state) {
           return MaterialApp(
             theme: state.themeData,
-            //theme: theme.getKustomTheme(),
-            // theme: ThemeData(
-            //     // primarySwatch: Colors.green,
-            //     ),
             debugShowCheckedModeBanner: false,
             title: 'AutoBioGraphene',
             // initialRoute: HomeScreen.id,
