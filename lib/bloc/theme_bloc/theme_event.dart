@@ -3,7 +3,7 @@
 // @immutable
 // abstract class ThemeEvent {}
 
-import 'package:autobiographene/ui/visual/theme/theme_bloc.dart';
+import 'package:autobiographene/ui/visual/theme/themes_bloc.dart';
 
 class ThemeEvent {
   final AppTheme? appTheme;

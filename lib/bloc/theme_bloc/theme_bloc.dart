@@ -23,7 +23,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:autobiographene/bloc/theme_bloc/theme_event.dart';
 import 'package:autobiographene/bloc/theme_bloc/theme_state.dart';
-import 'package:autobiographene/ui/visual/theme/theme_bloc.dart';
+import 'package:autobiographene/ui/visual/theme/themes_bloc.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   //

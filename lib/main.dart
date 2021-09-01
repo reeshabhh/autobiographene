@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
 // import 'package:shared_preferences/shared_preferences.dart'; //? is it required
 //FIXME could not find the provider //ERROR
 
@@ -26,7 +25,6 @@ import 'package:autobiographene/ui/registration_screen.dart';
 import 'package:autobiographene/ui/settings_screen.dart';
 import 'package:autobiographene/ui/splash_screen.dart';
 import 'package:autobiographene/ui/trending_screen.dart';
-import 'package:autobiographene/ui/visual/theme/kustom_theme_provider.dart';
 import 'package:autobiographene/ui/welcome_screen.dart';
 import 'package:autobiographene/bloc/theme_bloc/theme_bloc.dart';
 import 'package:autobiographene/bloc/theme_bloc/theme_state.dart';

@@ -5,17 +5,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:autobiographene/ui/visual/theme/kustom_theme_provider.dart';
 
 // Custom imports
-import 'package:autobiographene/main.dart';
 import 'package:autobiographene/ui/login_screen.dart';
 import 'package:autobiographene/ui/feedback_screen.dart';
 import 'package:autobiographene/ui/home_screen_not_used.dart';
 import 'package:autobiographene/ui/widgets/custom_bottom_app_bar.dart';
-import 'package:autobiographene/ui/visual/theme/theme_bloc.dart';
+import 'package:autobiographene/ui/visual/theme/themes_bloc.dart';
 import 'package:autobiographene/bloc/theme_bloc/theme_bloc.dart';
 import 'package:autobiographene/bloc/theme_bloc/theme_event.dart';
 // import 'package:autobiographene/ui/visual/theme/kustom_theme_provider.dart';
 
-AppTheme? _currTheme;
+// AppTheme? _currTheme;
+// bool boolTrue = true;
+
+bool _currThemeBoolean = true;
 
 class SettingsScreen extends StatefulWidget {
   static const String id = 'settings_screen';
@@ -26,12 +28,23 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   var email = loggedInUserGlobal!.email;
+  AppTheme? _currTheme = AppTheme.lightTheme;
+
+  _toggleTheme(bool val) {
+    // _currThemeBoolean = val;
+    val == true
+        ? BlocProvider.of<ThemeBloc>(context)
+            .add(ThemeEvent(appTheme: AppTheme.lightTheme))
+        : BlocProvider.of<ThemeBloc>(context)
+            .add(ThemeEvent(appTheme: AppTheme.darkTheme));
+  }
 
   _setTheme(bool darkTheme) {
-    _currTheme = darkTheme ? AppTheme.lightTheme : AppTheme.darkTheme;
+    _currTheme = darkTheme ? AppTheme.darkTheme : AppTheme.lightTheme;
     BlocProvider.of<ThemeBloc>(context).add(
       ThemeEvent(appTheme: AppTheme.darkTheme),
     );
+    // _currTheme = AppTheme.lightTheme;
 
     // context.bloc<ThemeBloc>().add(ThemeEvent(appTheme: AppTheme.darkTheme),);
 
@@ -105,9 +118,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           IconButton(
             onPressed: () {
-              _setTheme(false);
+              BlocProvider.of<ThemeBloc>(context).add(
+                ThemeEvent(appTheme: AppTheme.darkTheme),
+              );
+              // _setTheme(false);
               // _kustomThemeChanger.setTheme(darkTheme);
-              globalDarkThemeChecker = true;
+              // globalDarkThemeChecker = true;
 
               // _kustomThemeChanger(darkTheme);
             },
@@ -115,9 +131,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           IconButton(
             onPressed: () => {
-              _setTheme(true),
+              BlocProvider.of<ThemeBloc>(context)
+                  .add(ThemeEvent(appTheme: AppTheme.lightTheme)),
+              // _setTheme(true),
               // _kustomThemeChanger.setTheme(lightTheme),
-              globalDarkThemeChecker = false,
+              // globalDarkThemeChecker = false,
             }
             //  _themeChanger.setTheme(ThemeData.light()),
             ,
@@ -147,10 +165,73 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           Switch(
-              value: _currTheme == AppTheme.lightTheme,
-              onChanged: (val) {
-                _setTheme(val);
-              }),
+            value: _currTheme == AppTheme.lightTheme,
+            onChanged: (val) {
+              // _currTheme != _currTheme;
+              _setTheme(val);
+            },
+          ),
+          Switch(
+            value: _currThemeBoolean,
+            onChanged: (isOn) => setState(() => _currThemeBoolean = isOn),
+
+            // {
+            //   _toggleTheme(val);
+            // }
+          ),
+          Switch(
+            value: _currThemeBoolean,
+            onChanged: (isChanged) => setState(
+              () {
+                _toggleTheme(isChanged);
+                _currThemeBoolean = isChanged;
+              },
+            ),
+          ),
+          Icon(
+            _currThemeBoolean ? Icons.light_mode : Icons.dark_mode,
+          ),
+          IconButton(
+            onPressed: () => setState(
+              () {
+                // debugPrint(
+                // BlocProvider.of<ThemeBloc>(context).state.toString());
+                print(BlocProvider.of<ThemeBloc>(context)
+                    .state
+                    .themeData!
+                    .scaffoldBackgroundColor
+                    .toString());
+                print(BlocProvider.of<ThemeBloc>(context)
+                    .state
+                    .themeData
+                    .toString());
+                print(BlocProvider.of<ThemeBloc>(context)
+                    .state.themeData
+                     == AppTheme.darkTheme);
+                _currThemeBoolean = !_currThemeBoolean;
+                _toggleTheme(_currThemeBoolean);
+              },
+            ),
+            icon: _currThemeBoolean
+                ? Icon(Icons.light_mode)
+                : Icon(Icons.dark_mode),
+          )
+          // _currThemeBoolean
+          //     ? IconButton(
+          //         onPressed: () {
+          //           setState(
+          //             () => _currThemeBoolean = !_currThemeBoolean,
+          //           );
+          //         },
+          //         icon: Icon(Icons.light_mode))
+          //     : IconButton(
+          //         onPressed: () {
+          //           setState(
+          //             () => _currThemeBoolean = !_currThemeBoolean,
+          //           );
+          //         },
+          //         icon: Icon(Icons.dark_mode),
+          //       ),
         ],
       ),
       bottomNavigationBar: CustomBottomAppBar(),
@@ -166,6 +247,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
 //               onChanged: (value) {
 //                 setState(() {
 //                   _switchValue = value;
-//                 });
+//                 });  
 //               },
 //             ),

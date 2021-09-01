@@ -62,6 +62,7 @@ dependencies:
   uuid: ^3.0.4
   # provider: ^5.0.0
   flutter_bloc: ^7.1.0
+  equatable: ^2.0.3
 
 
   #*End* Added by me

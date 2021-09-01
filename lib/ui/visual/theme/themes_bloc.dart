@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 enum AppTheme {
@@ -5,7 +6,7 @@ enum AppTheme {
   darkTheme,
 }
 
-class AppThemes {
+class AppThemes extends Equatable {
   static final appThemeData = {
     AppTheme.lightTheme: ThemeData(
       scaffoldBackgroundColor: Colors.white,
@@ -18,9 +19,9 @@ class AppThemes {
       ),
     ),
     AppTheme.darkTheme: ThemeData(
-      scaffoldBackgroundColor: Colors.black,
-      primarySwatch: Colors.teal,
-      backgroundColor: Colors.black,
+      scaffoldBackgroundColor: Colors.green,
+      primarySwatch: Colors.green,
+      backgroundColor: Colors.green,
       textTheme: TextTheme(
         bodyText1: TextStyle(
           color: Colors.white,
@@ -28,4 +29,8 @@ class AppThemes {
       ),
     ),
   };
+
+  @override
+  List<Object?> get props => [];
+  // =>throw UnimplementedError();
 }
