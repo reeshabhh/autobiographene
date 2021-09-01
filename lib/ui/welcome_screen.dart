@@ -1,12 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:autobiographene/main.dart';
 import 'package:flutter/material.dart';
-
 
 // Custom imports
 import 'package:autobiographene/ui/login_screen.dart';
 import 'package:autobiographene/ui/registration_screen.dart';
-
-
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -18,6 +16,22 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
+    mediaQueryGlobal = MediaQuery.of(context);
+    mediaQueryOrientationGlobal = mediaQueryGlobal.orientation;
+    mediaQuerySizeGlobal = MediaQuery.of(context).size;
+    if (mediaQueryOrientationGlobal == Orientation.portrait) {
+      mediaQueryHeightGlobal = mediaQuerySizeGlobal.height;
+      mediaQueryWidthGlobal = mediaQuerySizeGlobal.width;
+      // mediaQueryHeightGlobal = mediaQueryHeightGlobal - 100;
+      // mediaQueryWidthGlobal = mediaQueryWidthGlobal - 50;
+      print(mediaQuerySizeGlobal); // I/flutter ( 6545): Size(411.4, 820.6)
+    } else {
+      mediaQueryWidthGlobal = mediaQuerySizeGlobal.height;
+      mediaQueryHeightGlobal = mediaQuerySizeGlobal.width;
+      //    mediaQueryHeightGlobal = mediaQueryHeightGlobal - 100;
+      // mediaQueryWidthGlobal = mediaQueryWidthGlobal - 50;
+      print(mediaQuerySizeGlobal);
+    }
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
@@ -56,18 +70,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             SizedBox(
               height: 48.0,
             ),
-            // RoundedButton(
-            //   title: 'Log In',
-            //   colour: Colors.lightBlueAccent,
-            //   onPressed: () {
-            //     // Navigator.pushNamed(context, LoginScreen.id);
-            //     print('====================================================');
-            //     print('LoginScreen push before');
-            //     Navigator.pushNamed(context, LoginScreen.id);
-            //     print('LoginScreen push after');
-            //     print('====================================================');
-            //   },
-            // ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Material(
@@ -76,13 +78,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 elevation: 5.0,
                 child: MaterialButton(
                   onPressed: () {
-                    // print(
-                    //     '====================================================');
-                    // print('LoginScreen push before');
                     Navigator.pushNamed(context, LoginScreen.id);
-                    // print('LoginScreen push after');
-                    // print(
-                    //     '====================================================');
                   },
                   minWidth: 200.0,
                   height: 42.0,
@@ -92,7 +88,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ),
             ),
-
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Material(
@@ -101,7 +96,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 elevation: 5.0,
                 child: MaterialButton(
                   onPressed: () {
-                    //Go to registration screen.
                     //   Navigator.push(
                     //     context,
                     //     MaterialPageRoute(
@@ -109,10 +103,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     //     ),
                     //   );
                     // Instead of using Navigator.push I can also use Navigator.pushnamed. In this case I will have to pass few things and it will be fast because I will not have to create an object instead I will pass a static variable from that class
-                    //
-                    // Navigator.pushNamed(context, RegistrationScreen.id);
-                    // print(
-                    //     '====================================================');
                     Navigator.pushNamed(context, RegistrationScreen.id);
                   },
                   minWidth: 200.0,
@@ -123,6 +113,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ),
             ),
+            RoundedButton(
+              text: 'Register',
+              idOfRoute: RegistrationScreen.id,
+            )
           ],
         ),
       ),
@@ -131,11 +125,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 }
 
 class RoundedButton extends StatelessWidget {
-  RoundedButton({this.colour, this.title, @required this.onPressed});
-
   final Color? colour;
   final String? title;
-  final Function? onPressed;
+  final String? text;
+  final String? idOfRoute;
+  // final Function? onPressed;
+
+  RoundedButton(
+      {this.colour, this.title, @required this.text, @required this.idOfRoute});
 
   @override
   Widget build(BuildContext context) {
@@ -146,25 +143,13 @@ class RoundedButton extends StatelessWidget {
         color: Colors.lightBlueAccent,
         borderRadius: BorderRadius.circular(30.0),
         child: MaterialButton(
-          //FIXME changed here
-
-          onPressed: () {},
-          // onPressed: () {
-          //Go to login screen.
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) => LoginScreen(),
-          //   ),
-          // );
-          // Instead of using Navigator.push I can also use Navigator.pushnamed. In this case I will have to pass few things and it will be fast because I will not have to create an object instead I will pass a static variable from that class
-          //
-          // Navigator.pushNamed(context, LoginScreen.id);
-          // },
+          onPressed: () {
+            Navigator.pushNamed(context, idOfRoute!);
+          },
           minWidth: 200.0,
           height: 42.0,
           child: Text(
-            'Log In',
+            text!,
           ),
         ),
       ),

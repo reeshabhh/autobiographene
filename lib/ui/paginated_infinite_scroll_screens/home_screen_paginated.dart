@@ -1,3 +1,4 @@
+import 'package:autobiographene/main.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -7,7 +8,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:uuid/uuid.dart';
 import 'package:paginate_firestore/paginate_firestore.dart';
 // import 'package:paginate_firestore/bloc/pagination_listeners.dart';
-
 
 // Custom imports
 import 'package:autobiographene/ui/comments_screen.dart';
@@ -113,6 +113,22 @@ class _HomeScreenPaginated extends State<HomeScreenPaginated> {
   // var email = loggedInUserGlobal!.email;
   @override
   Widget build(BuildContext context) {
+    mediaQueryGlobal = MediaQuery.of(context);
+    mediaQueryOrientationGlobal = mediaQueryGlobal.orientation;
+    mediaQuerySizeGlobal = MediaQuery.of(context).size;
+    if (mediaQueryOrientationGlobal == Orientation.portrait) {
+      mediaQueryHeightGlobal = mediaQuerySizeGlobal.height;
+      mediaQueryWidthGlobal = mediaQuerySizeGlobal.width;
+      mediaQueryHeightGlobal = mediaQueryHeightGlobal - 100;
+      mediaQueryWidthGlobal = mediaQueryWidthGlobal - 50;
+      print(mediaQuerySizeGlobal); // I/flutter ( 6545): Size(411.4, 820.6)
+    } else {
+      mediaQueryWidthGlobal = mediaQuerySizeGlobal.height;
+      mediaQueryHeightGlobal = mediaQuerySizeGlobal.width;
+      mediaQueryHeightGlobal = mediaQueryHeightGlobal - 100;
+      mediaQueryWidthGlobal = mediaQueryWidthGlobal - 50;
+      print(mediaQuerySizeGlobal);
+    }
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -140,7 +156,9 @@ class _HomeScreenPaginated extends State<HomeScreenPaginated> {
         body: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: EdgeInsets.symmetric(
+                  vertical: mediaQueryHeightGlobal / 40,
+                  horizontal: mediaQueryWidthGlobal / 25),
               child: TextField(
                 controller: _textEditingControllerPosts,
                 onChanged: (String value) {
@@ -150,21 +168,22 @@ class _HomeScreenPaginated extends State<HomeScreenPaginated> {
                   hintText: 'How did it go?', // TODO: This will be random
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
-                      Radius.circular(32.0),
+                      Radius.circular(mediaQueryWidthGlobal / 12.5),
                     ),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide:
                         BorderSide(color: Colors.lightBlueAccent, width: 1.0),
                     borderRadius: BorderRadius.all(
-                      Radius.circular(32.0),
+                      Radius.circular(mediaQueryWidthGlobal / 12.5),
                     ),
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0.0, 15, 10),
+              padding: EdgeInsets.fromLTRB(mediaQueryWidthGlobal / 25, 0.0,
+                  mediaQueryWidthGlobal / 25, mediaQueryHeightGlobal / 80),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -187,7 +206,7 @@ class _HomeScreenPaginated extends State<HomeScreenPaginated> {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.only(right: 20.0),
+                    padding: EdgeInsets.only(right: mediaQueryWidthGlobal / 20),
                     child: ConstrainedBox(
                       constraints:
                           BoxConstraints.tightFor(width: 80, height: 30),

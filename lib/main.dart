@@ -31,6 +31,12 @@ import 'package:autobiographene/bloc/theme/theme_state.dart';
 
 // bool globalDarkThemeChecker = true;
 
+late var mediaQueryGlobal;
+late var mediaQueryOrientationGlobal;
+late Size mediaQuerySizeGlobal;
+late double mediaQueryHeightGlobal;
+late double mediaQueryWidthGlobal;
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -39,19 +45,7 @@ Future<void> main() async {
   );
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialAppWithTheme();
-  }
-}
-
-class MaterialAppWithTheme extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
